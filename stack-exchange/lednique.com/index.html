@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en-GB" prefix="og: http://ogp.me/ns#" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>LED circuits, theory, applications and tips | LEDnique</title>
+<script>(function(d, s, id){
+				 var js, fjs = d.getElementsByTagName(s)[0];
+				 if (d.getElementById(id)) {return;}
+				 js = d.createElement(s); js.id = id;
+				 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+				 fjs.parentNode.insertBefore(js, fjs);
+			   }(document, 'script', 'facebook-jssdk'));</script>
+<!-- This site is optimized with the Yoast SEO plugin v11.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="LEDnique is a source of electronics technical information, practical theory and tips related to LED lighting, display and indication applications."/>
+<link rel="canonical" href="http://lednique.com/" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="LED circuits, theory, applications and tips | LEDnique" />
+<meta property="og:description" content="LEDnique is a source of electronics technical information, practical theory and tips related to LED lighting, display and indication applications." />
+<meta property="og:url" content="http://lednique.com/" />
+<meta property="og:site_name" content="LEDnique" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="LEDnique is a source of electronics technical information, practical theory and tips related to LED lighting, display and indication applications." />
+<meta name="twitter:title" content="LED circuits, theory, applications and tips | LEDnique" />
+<meta name="twitter:image" content="http://lednique.com/wp/wp-content/uploads/2016/09/Various-LEDs.png" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://lednique.com/#organization","name":"LEDnique","url":"http://lednique.com/","sameAs":["https://www.youtube.com/channel/UCtrtzifOM0hCiXOQsFXCy6A"],"logo":{"@type":"ImageObject","@id":"http://lednique.com/#logo","url":"http://lednique.com/wp/wp-content/uploads/2016/09/cropped-LEDnique_logo_01_512x512-1.png","caption":"LEDnique"},"image":{"@id":"http://lednique.com/#logo"}},{"@type":"WebSite","@id":"http://lednique.com/#website","url":"http://lednique.com/","name":"LEDnique","publisher":{"@id":"http://lednique.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"http://lednique.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"http://lednique.com/#webpage","url":"http://lednique.com/","inLanguage":"en-GB","name":"LED circuits, theory, applications and tips | LEDnique","isPartOf":{"@id":"http://lednique.com/#website"},"about":{"@id":"http://lednique.com/#organization"},"datePublished":"2016-09-02T22:08:41+00:00","dateModified":"2017-11-29T18:48:33+00:00","description":"LEDnique is a source of electronics technical information, practical theory and tips related to LED lighting, display and indication applications."}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//w.sharethis.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="LEDnique &raquo; Feed" href="http://lednique.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="LEDnique &raquo; Comments Feed" href="http://lednique.com/comments/feed/" />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.15.1 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+    (window.gaDevIds=window.gaDevIds||[]).push("dZGIzZG");
+	var mi_version         = '7.15.1';
+	var mi_track_user      = true;
+	var mi_no_track_reason = '';
+	
+	var disableStr = 'ga-disable-UA-39375012-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+
+	if ( 'undefined' === typeof gaOptout ) {
+		function gaOptout() {
+			__gaTrackerOptout();
+		}
+	}
+	
+	if ( mi_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+		__gaTracker('create', 'UA-39375012-1', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('require', 'displayfeatures');
+		__gaTracker('send','pageview');
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + mi_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+					})();
+		}
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/lednique.com\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='http://lednique.com/wp/wp-includes/css/dist/block-library/style.min.css?ver=5.1.8' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://lednique.com/wp/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.5' type='text/css' media='all' />
+<link rel='stylesheet' id='simple-share-buttons-adder-indie-css'  href='//fonts.googleapis.com/css?family=Indie+Flower&#038;ver=5.1.8' type='text/css' media='all' />
+<link rel='stylesheet' id='simple-share-buttons-adder-font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=5.1.8' type='text/css' media='all' />
+<link rel='stylesheet' id='wpctc_wpctc-css'  href='http://lednique.com/wp/wp-content/plugins/wp-category-tag-could/css/wpctc.min.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='child-pages-shortcode-css-css'  href='http://lednique.com/wp/wp-content/plugins/child-pages-shortcode/css/child-pages-shortcode.min.css?ver=1.1.4' type='text/css' media='all' />
+<link rel='stylesheet' id='monsterinsights-popular-posts-style-css'  href='http://lednique.com/wp/wp-content/plugins/google-analytics-for-wordpress/assets/css/frontend.min.css?ver=7.15.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentysixteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Merriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://lednique.com/wp/wp-content/themes/twentysixteen/genericons/genericons.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentysixteen-style-css'  href='http://lednique.com/wp/wp-content/themes/twentysixteen/style.css?ver=5.1.8' type='text/css' media='all' />
+<style id='twentysixteen-style-inline-css' type='text/css'>
+
+		/* Custom Link Color */
+		.menu-toggle:hover,
+		.menu-toggle:focus,
+		a,
+		.main-navigation a:hover,
+		.main-navigation a:focus,
+		.dropdown-toggle:hover,
+		.dropdown-toggle:focus,
+		.social-navigation a:hover:before,
+		.social-navigation a:focus:before,
+		.post-navigation a:hover .post-title,
+		.post-navigation a:focus .post-title,
+		.tagcloud a:hover,
+		.tagcloud a:focus,
+		.site-branding .site-title a:hover,
+		.site-branding .site-title a:focus,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-footer a:hover,
+		.entry-footer a:focus,
+		.comment-metadata a:hover,
+		.comment-metadata a:focus,
+		.pingback .comment-edit-link:hover,
+		.pingback .comment-edit-link:focus,
+		.comment-reply-link,
+		.comment-reply-link:hover,
+		.comment-reply-link:focus,
+		.required,
+		.site-info a:hover,
+		.site-info a:focus {
+			color: #0e7201;
+		}
+
+		mark,
+		ins,
+		button:hover,
+		button:focus,
+		input[type="button"]:hover,
+		input[type="button"]:focus,
+		input[type="reset"]:hover,
+		input[type="reset"]:focus,
+		input[type="submit"]:hover,
+		input[type="submit"]:focus,
+		.pagination .prev:hover,
+		.pagination .prev:focus,
+		.pagination .next:hover,
+		.pagination .next:focus,
+		.widget_calendar tbody a,
+		.page-links a:hover,
+		.page-links a:focus {
+			background-color: #0e7201;
+		}
+
+		input[type="date"]:focus,
+		input[type="time"]:focus,
+		input[type="datetime-local"]:focus,
+		input[type="week"]:focus,
+		input[type="month"]:focus,
+		input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="password"]:focus,
+		input[type="search"]:focus,
+		input[type="tel"]:focus,
+		input[type="number"]:focus,
+		textarea:focus,
+		.tagcloud a:hover,
+		.tagcloud a:focus,
+		.menu-toggle:hover,
+		.menu-toggle:focus {
+			border-color: #0e7201;
+		}
+
+		@media screen and (min-width: 56.875em) {
+			.main-navigation li:hover > a,
+			.main-navigation li.focus > a {
+				color: #0e7201;
+			}
+		}
+	
+</style>
+<!--[if lt IE 10]>
+<link rel='stylesheet' id='twentysixteen-ie-css'  href='http://lednique.com/wp/wp-content/themes/twentysixteen/css/ie.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentysixteen-ie8-css'  href='http://lednique.com/wp/wp-content/themes/twentysixteen/css/ie8.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentysixteen-ie7-css'  href='http://lednique.com/wp/wp-content/themes/twentysixteen/css/ie7.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[]","home_url":"http:\/\/lednique.com","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend.min.js?ver=7.15.1'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script id='st_insights_js' type='text/javascript' src='http://w.sharethis.com/button/st_insights.js?publisher=4d48b7c5-0ae3-43d4-bfbe-3ff8c17a8ae6&#038;product=simpleshare'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/child-pages-shortcode/js/child-pages-shortcode.min.js?ver=1.1.4'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/themes/twentysixteen/js/html5.js?ver=3.7.3'></script>
+<![endif]-->
+<link rel='https://api.w.org/' href='http://lednique.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://lednique.com/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://lednique.com/wp/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.8" />
+<link rel='shortlink' href='http://lednique.com/' />
+<link rel="alternate" type="application/json+oembed" href="http://lednique.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flednique.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://lednique.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flednique.com%2F&#038;format=xml" />
+
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/uploads/custom-css-js/626.js?v=573'></script>
+<link rel="icon" href="http://lednique.com/wp/wp-content/uploads/2016/09/cropped-LEDnique_logo_01_512x512-32x32.png" sizes="32x32" />
+<link rel="icon" href="http://lednique.com/wp/wp-content/uploads/2016/09/cropped-LEDnique_logo_01_512x512-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="http://lednique.com/wp/wp-content/uploads/2016/09/cropped-LEDnique_logo_01_512x512-180x180.png" />
+<meta name="msapplication-TileImage" content="http://lednique.com/wp/wp-content/uploads/2016/09/cropped-LEDnique_logo_01_512x512-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+/* https://css-tricks.com/minimum-paragraph-widths/ */
+p:before {
+  content: "";
+  width: 10em;
+  display: block;
+  overflow: hidden;
+  /* For Demonstration */
+  border: 0px solid green;
+}
+
+/* Series of mods based on https://allaboutbasic.com/2016/01/15/wordpress-twenty-sixteen-2016-theme-modifications-change-colors-titles-metassidebar-fontsheaderfooter-menus-etc-using-css/ */
+
+#masthead {
+  padding-top: 0px !important;
+  padding-bottom: 12px !important;
+}
+
+site-title a {
+color: red !important;
+font-family: times new roman !important;
+}
+.site-title {
+font-size: 34px !important;
+}
+
+/* LEDnique */
+body {
+// font-family: sans-serif !important;
+}		</style>
+		</head>
+
+<body class="home page-template-default page page-id-4">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-header-main">
+				<div class="site-branding">
+					
+											<p class="site-title"><a href="http://lednique.com/" rel="home">LEDnique</a></p>
+											<p class="site-description">Practical electronic circuits and theory for LEDs and power.</p>
+									</div><!-- .site-branding -->
+
+							</div><!-- .site-header-main -->
+
+											<div class="header-image">
+					<a href="http://lednique.com/" rel="home">
+						<img src="http://lednique.com/wp/wp-content/uploads/2016/09/LEDnique_banner_1200x120-1.png" srcset="http://lednique.com/wp/wp-content/uploads/2016/09/LEDnique_banner_1200x120-1-300x30.png 300w, http://lednique.com/wp/wp-content/uploads/2016/09/LEDnique_banner_1200x120-1-768x77.png 768w, http://lednique.com/wp/wp-content/uploads/2016/09/LEDnique_banner_1200x120-1-1024x102.png 1024w, http://lednique.com/wp/wp-content/uploads/2016/09/LEDnique_banner_1200x120-1.png 1200w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="1200" height="120" alt="LEDnique">
+					</a>
+				</div><!-- .header-image -->
+					</header><!-- .site-header -->
+
+		<div id="content" class="site-content">
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		
+<article id="post-4" class="post-4 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">LED circuits, theory, applications and tips</h1>	</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p><img class="alignleft size-full wp-image-99" src="http://lednique.com/wp/wp-content/uploads/2016/09/Various-LEDs.png" alt="Various low-power LEDs." width="800" height="211" srcset="http://lednique.com/wp/wp-content/uploads/2016/09/Various-LEDs.png 800w, http://lednique.com/wp/wp-content/uploads/2016/09/Various-LEDs-300x79.png 300w, http://lednique.com/wp/wp-content/uploads/2016/09/Various-LEDs-768x203.png 768w" sizes="(max-width: 800px) 85vw, 800px" /></p>
+<p><em><strong>LEDnique</strong></em> is a source of technical information, practical theory and tips related to LED lighting and indication applications. Topics include the LEDs, power supplies and control.</p>
+<p>Click a tag to list pages tagged for that topic.</p>
+    <div
+        id="wpctc_post_4-tagcloud"
+        class='wpctc-wpctc_post_4       wpctc-flat'>
+        <a href="http://lednique.com/tag/0-10v/" class="tag-cloud-link tag-link-115 tag-link-position-1" style="font-size: 75%;" aria-label="0-10V (1 item)">0-10V</a>
+<a href="http://lednique.com/tag/3-pin/" class="tag-cloud-link tag-link-70 tag-link-position-2" style="font-size: 75%;" aria-label="3-pin (1 item)">3-pin</a>
+<a href="http://lednique.com/tag/5-x-7-matrix/" class="tag-cloud-link tag-link-79 tag-link-position-3" style="font-size: 75%;" aria-label="5 x 7 matrix (1 item)">5 x 7 matrix</a>
+<a href="http://lednique.com/tag/7-segment/" class="tag-cloud-link tag-link-39 tag-link-position-4" style="font-size: 95.2702702703%;" aria-label="7-segment (2 items)">7-segment</a>
+<a href="http://lednique.com/tag/12v/" class="tag-cloud-link tag-link-5 tag-link-position-5" style="font-size: 75%;" aria-label="12V (1 item)">12V</a>
+<a href="http://lednique.com/tag/14-segment/" class="tag-cloud-link tag-link-77 tag-link-position-6" style="font-size: 75%;" aria-label="14-segment (1 item)">14-segment</a>
+<a href="http://lednique.com/tag/16-segment/" class="tag-cloud-link tag-link-78 tag-link-position-7" style="font-size: 75%;" aria-label="16-segment (1 item)">16-segment</a>
+<a href="http://lednique.com/tag/ac/" class="tag-cloud-link tag-link-122 tag-link-position-8" style="font-size: 75%;" aria-label="ac (1 item)">ac</a>
+<a href="http://lednique.com/tag/alphanumeric/" class="tag-cloud-link tag-link-80 tag-link-position-9" style="font-size: 75%;" aria-label="alphanumeric (1 item)">alphanumeric</a>
+<a href="http://lednique.com/tag/arduino/" class="tag-cloud-link tag-link-63 tag-link-position-10" style="font-size: 75%;" aria-label="arduino (1 item)">arduino</a>
+<a href="http://lednique.com/tag/auto/" class="tag-cloud-link tag-link-99 tag-link-position-11" style="font-size: 75%;" aria-label="auto (1 item)">auto</a>
+<a href="http://lednique.com/tag/backlight/" class="tag-cloud-link tag-link-116 tag-link-position-12" style="font-size: 75%;" aria-label="backlight (1 item)">backlight</a>
+<a href="http://lednique.com/tag/band-gap/" class="tag-cloud-link tag-link-13 tag-link-position-13" style="font-size: 75%;" aria-label="band gap (1 item)">band gap</a>
+<a href="http://lednique.com/tag/battery/" class="tag-cloud-link tag-link-28 tag-link-position-14" style="font-size: 75%;" aria-label="battery (1 item)">battery</a>
+<a href="http://lednique.com/tag/bi-colour/" class="tag-cloud-link tag-link-15 tag-link-position-15" style="font-size: 108.783783784%;" aria-label="bi-colour (3 items)">bi-colour</a>
+<a href="http://lednique.com/tag/binned/" class="tag-cloud-link tag-link-109 tag-link-position-16" style="font-size: 75%;" aria-label="binned (1 item)">binned</a>
+<a href="http://lednique.com/tag/buffer/" class="tag-cloud-link tag-link-34 tag-link-position-17" style="font-size: 75%;" aria-label="buffer (1 item)">buffer</a>
+<a href="http://lednique.com/tag/bulb/" class="tag-cloud-link tag-link-102 tag-link-position-18" style="font-size: 95.2702702703%;" aria-label="bulb (2 items)">bulb</a>
+<a href="http://lednique.com/tag/calculation/" class="tag-cloud-link tag-link-68 tag-link-position-19" style="font-size: 75%;" aria-label="calculation (1 item)">calculation</a>
+<a href="http://lednique.com/tag/camera/" class="tag-cloud-link tag-link-74 tag-link-position-20" style="font-size: 75%;" aria-label="camera (1 item)">camera</a>
+<a href="http://lednique.com/tag/car/" class="tag-cloud-link tag-link-100 tag-link-position-21" style="font-size: 75%;" aria-label="car (1 item)">car</a>
+<a href="http://lednique.com/tag/characteristics/" class="tag-cloud-link tag-link-57 tag-link-position-22" style="font-size: 75%;" aria-label="characteristics (1 item)">characteristics</a>
+<a href="http://lednique.com/tag/chart/" class="tag-cloud-link tag-link-105 tag-link-position-23" style="font-size: 75%;" aria-label="chart (1 item)">chart</a>
+<a href="http://lednique.com/tag/chassis/" class="tag-cloud-link tag-link-119 tag-link-position-24" style="font-size: 75%;" aria-label="chassis (1 item)">chassis</a>
+<a href="http://lednique.com/tag/colour/" class="tag-cloud-link tag-link-8 tag-link-position-25" style="font-size: 108.783783784%;" aria-label="colour (3 items)">colour</a>
+<a href="http://lednique.com/tag/connector/" class="tag-cloud-link tag-link-88 tag-link-position-26" style="font-size: 75%;" aria-label="connector (1 item)">connector</a>
+<a href="http://lednique.com/tag/constant-current/" class="tag-cloud-link tag-link-110 tag-link-position-27" style="font-size: 108.783783784%;" aria-label="constant-current (3 items)">constant-current</a>
+<a href="http://lednique.com/tag/ctr/" class="tag-cloud-link tag-link-59 tag-link-position-28" style="font-size: 75%;" aria-label="CTR (1 item)">CTR</a>
+<a href="http://lednique.com/tag/current/" class="tag-cloud-link tag-link-26 tag-link-position-29" style="font-size: 120.045045045%;" aria-label="current (4 items)">current</a>
+<a href="http://lednique.com/tag/current-transfer-ratio/" class="tag-cloud-link tag-link-58 tag-link-position-30" style="font-size: 75%;" aria-label="current transfer ratio (1 item)">current transfer ratio</a>
+<a href="http://lednique.com/tag/darlington/" class="tag-cloud-link tag-link-54 tag-link-position-31" style="font-size: 75%;" aria-label="darlington (1 item)">darlington</a>
+<a href="http://lednique.com/tag/datasheet/" class="tag-cloud-link tag-link-10 tag-link-position-32" style="font-size: 95.2702702703%;" aria-label="datasheet (2 items)">datasheet</a>
+<a href="http://lednique.com/tag/decoder/" class="tag-cloud-link tag-link-43 tag-link-position-33" style="font-size: 75%;" aria-label="decoder (1 item)">decoder</a>
+<a href="http://lednique.com/tag/dimmable/" class="tag-cloud-link tag-link-113 tag-link-position-34" style="font-size: 95.2702702703%;" aria-label="dimmable (2 items)">dimmable</a>
+<a href="http://lednique.com/tag/dimmer/" class="tag-cloud-link tag-link-103 tag-link-position-35" style="font-size: 95.2702702703%;" aria-label="dimmer (2 items)">dimmer</a>
+<a href="http://lednique.com/tag/diode/" class="tag-cloud-link tag-link-125 tag-link-position-36" style="font-size: 75%;" aria-label="diode (1 item)">diode</a>
+<a href="http://lednique.com/tag/display/" class="tag-cloud-link tag-link-41 tag-link-position-37" style="font-size: 95.2702702703%;" aria-label="display (2 items)">display</a>
+<a href="http://lednique.com/tag/diy/" class="tag-cloud-link tag-link-52 tag-link-position-38" style="font-size: 75%;" aria-label="DIY (1 item)">DIY</a>
+<a href="http://lednique.com/tag/driver/" class="tag-cloud-link tag-link-44 tag-link-position-39" style="font-size: 95.2702702703%;" aria-label="driver (2 items)">driver</a>
+<a href="http://lednique.com/tag/earth/" class="tag-cloud-link tag-link-118 tag-link-position-40" style="font-size: 75%;" aria-label="earth (1 item)">earth</a>
+<a href="http://lednique.com/tag/electrical/" class="tag-cloud-link tag-link-66 tag-link-position-41" style="font-size: 75%;" aria-label="electrical (1 item)">electrical</a>
+<a href="http://lednique.com/tag/eleven-segment/" class="tag-cloud-link tag-link-75 tag-link-position-42" style="font-size: 75%;" aria-label="eleven-segment (1 item)">eleven-segment</a>
+<a href="http://lednique.com/tag/failure/" class="tag-cloud-link tag-link-123 tag-link-position-43" style="font-size: 75%;" aria-label="failure (1 item)">failure</a>
+<a href="http://lednique.com/tag/filament/" class="tag-cloud-link tag-link-82 tag-link-position-44" style="font-size: 95.2702702703%;" aria-label="filament (2 items)">filament</a>
+<a href="http://lednique.com/tag/flexible/" class="tag-cloud-link tag-link-87 tag-link-position-45" style="font-size: 75%;" aria-label="flexible (1 item)">flexible</a>
+<a href="http://lednique.com/tag/flicker/" class="tag-cloud-link tag-link-45 tag-link-position-46" style="font-size: 75%;" aria-label="flicker (1 item)">flicker</a>
+<a href="http://lednique.com/tag/fluke/" class="tag-cloud-link tag-link-83 tag-link-position-47" style="font-size: 75%;" aria-label="Fluke (1 item)">Fluke</a>
+<a href="http://lednique.com/tag/fluorescent/" class="tag-cloud-link tag-link-46 tag-link-position-48" style="font-size: 75%;" aria-label="fluorescent (1 item)">fluorescent</a>
+<a href="http://lednique.com/tag/forward-voltage/" class="tag-cloud-link tag-link-107 tag-link-position-49" style="font-size: 95.2702702703%;" aria-label="forward voltage (2 items)">forward voltage</a>
+<a href="http://lednique.com/tag/gpio/" class="tag-cloud-link tag-link-14 tag-link-position-50" style="font-size: 142.567567568%;" aria-label="GPIO (7 items)">GPIO</a>
+<a href="http://lednique.com/tag/ground/" class="tag-cloud-link tag-link-117 tag-link-position-51" style="font-size: 75%;" aria-label="ground (1 item)">ground</a>
+<a href="http://lednique.com/tag/high-side/" class="tag-cloud-link tag-link-36 tag-link-position-52" style="font-size: 95.2702702703%;" aria-label="high-side (2 items)">high-side</a>
+<a href="http://lednique.com/tag/incandescent/" class="tag-cloud-link tag-link-81 tag-link-position-53" style="font-size: 75%;" aria-label="incandescent (1 item)">incandescent</a>
+<a href="http://lednique.com/tag/indicator/" class="tag-cloud-link tag-link-101 tag-link-position-54" style="font-size: 75%;" aria-label="indicator (1 item)">indicator</a>
+<a href="http://lednique.com/tag/infra-red/" class="tag-cloud-link tag-link-72 tag-link-position-55" style="font-size: 75%;" aria-label="infra-red (1 item)">infra-red</a>
+<a href="http://lednique.com/tag/infrared/" class="tag-cloud-link tag-link-71 tag-link-position-56" style="font-size: 75%;" aria-label="infrared (1 item)">infrared</a>
+<a href="http://lednique.com/tag/intro/" class="tag-cloud-link tag-link-4 tag-link-position-57" style="font-size: 75%;" aria-label="intro (1 item)">intro</a>
+<a href="http://lednique.com/tag/iv/" class="tag-cloud-link tag-link-11 tag-link-position-58" style="font-size: 95.2702702703%;" aria-label="IV (2 items)">IV</a>
+<a href="http://lednique.com/tag/iv-curve/" class="tag-cloud-link tag-link-95 tag-link-position-59" style="font-size: 95.2702702703%;" aria-label="IV curve (2 items)">IV curve</a>
+<a href="http://lednique.com/tag/joiner/" class="tag-cloud-link tag-link-89 tag-link-position-60" style="font-size: 75%;" aria-label="joiner (1 item)">joiner</a>
+<a href="http://lednique.com/tag/latch/" class="tag-cloud-link tag-link-42 tag-link-position-61" style="font-size: 75%;" aria-label="latch (1 item)">latch</a>
+<a href="http://lednique.com/tag/ldr/" class="tag-cloud-link tag-link-90 tag-link-position-62" style="font-size: 75%;" aria-label="LDR (1 item)">LDR</a>
+<a href="http://lednique.com/tag/ldr-gamma/" class="tag-cloud-link tag-link-92 tag-link-position-63" style="font-size: 75%;" aria-label="ldr gamma (1 item)">ldr gamma</a>
+<a href="http://lednique.com/tag/led/" class="tag-cloud-link tag-link-6 tag-link-position-64" style="font-size: 200%;" aria-label="LED (25 items)">LED</a>
+<a href="http://lednique.com/tag/light-bulb/" class="tag-cloud-link tag-link-19 tag-link-position-65" style="font-size: 95.2702702703%;" aria-label="light-bulb (2 items)">light-bulb</a>
+<a href="http://lednique.com/tag/light-strip/" class="tag-cloud-link tag-link-85 tag-link-position-66" style="font-size: 75%;" aria-label="light strip (1 item)">light strip</a>
+<a href="http://lednique.com/tag/load-line/" class="tag-cloud-link tag-link-121 tag-link-position-67" style="font-size: 75%;" aria-label="load-line (1 item)">load-line</a>
+<a href="http://lednique.com/tag/loadline/" class="tag-cloud-link tag-link-104 tag-link-position-68" style="font-size: 75%;" aria-label="loadline (1 item)">loadline</a>
+<a href="http://lednique.com/tag/logic/" class="tag-cloud-link tag-link-32 tag-link-position-69" style="font-size: 75%;" aria-label="logic (1 item)">logic</a>
+<a href="http://lednique.com/tag/low-side/" class="tag-cloud-link tag-link-35 tag-link-position-70" style="font-size: 95.2702702703%;" aria-label="low-side (2 items)">low-side</a>
+<a href="http://lednique.com/tag/loz/" class="tag-cloud-link tag-link-84 tag-link-position-71" style="font-size: 75%;" aria-label="LoZ (1 item)">LoZ</a>
+<a href="http://lednique.com/tag/luminous-intensity/" class="tag-cloud-link tag-link-108 tag-link-position-72" style="font-size: 75%;" aria-label="luminous intensity (1 item)">luminous intensity</a>
+<a href="http://lednique.com/tag/metal-can/" class="tag-cloud-link tag-link-53 tag-link-position-73" style="font-size: 75%;" aria-label="metal-can (1 item)">metal-can</a>
+<a href="http://lednique.com/tag/mixing/" class="tag-cloud-link tag-link-76 tag-link-position-74" style="font-size: 75%;" aria-label="mixing (1 item)">mixing</a>
+<a href="http://lednique.com/tag/model/" class="tag-cloud-link tag-link-120 tag-link-position-75" style="font-size: 75%;" aria-label="model (1 item)">model</a>
+<a href="http://lednique.com/tag/multimeter/" class="tag-cloud-link tag-link-30 tag-link-position-76" style="font-size: 75%;" aria-label="multimeter. (1 item)">multimeter.</a>
+<a href="http://lednique.com/tag/multiplex/" class="tag-cloud-link tag-link-18 tag-link-position-77" style="font-size: 95.2702702703%;" aria-label="multiplex (2 items)">multiplex</a>
+<a href="http://lednique.com/tag/npn/" class="tag-cloud-link tag-link-33 tag-link-position-78" style="font-size: 75%;" aria-label="NPN (1 item)">NPN</a>
+<a href="http://lednique.com/tag/ohms-law/" class="tag-cloud-link tag-link-20 tag-link-position-79" style="font-size: 75%;" aria-label="Ohm&#039;s law (1 item)">Ohm&#039;s law</a>
+<a href="http://lednique.com/tag/opto-isolator/" class="tag-cloud-link tag-link-49 tag-link-position-80" style="font-size: 129.054054054%;" aria-label="opto-isolator (5 items)">opto-isolator</a>
+<a href="http://lednique.com/tag/opto-triac/" class="tag-cloud-link tag-link-56 tag-link-position-81" style="font-size: 75%;" aria-label="opto-triac (1 item)">opto-triac</a>
+<a href="http://lednique.com/tag/optocoupler/" class="tag-cloud-link tag-link-50 tag-link-position-82" style="font-size: 75%;" aria-label="optocoupler (1 item)">optocoupler</a>
+<a href="http://lednique.com/tag/packaging/" class="tag-cloud-link tag-link-31 tag-link-position-83" style="font-size: 75%;" aria-label="packaging (1 item)">packaging</a>
+<a href="http://lednique.com/tag/parallel/" class="tag-cloud-link tag-link-17 tag-link-position-84" style="font-size: 75%;" aria-label="parallel (1 item)">parallel</a>
+<a href="http://lednique.com/tag/photo-diode/" class="tag-cloud-link tag-link-55 tag-link-position-85" style="font-size: 75%;" aria-label="photo-diode (1 item)">photo-diode</a>
+<a href="http://lednique.com/tag/photocoupler/" class="tag-cloud-link tag-link-51 tag-link-position-86" style="font-size: 75%;" aria-label="photocoupler (1 item)">photocoupler</a>
+<a href="http://lednique.com/tag/pin-out/" class="tag-cloud-link tag-link-61 tag-link-position-87" style="font-size: 75%;" aria-label="pin-out (1 item)">pin-out</a>
+<a href="http://lednique.com/tag/pinout/" class="tag-cloud-link tag-link-60 tag-link-position-88" style="font-size: 95.2702702703%;" aria-label="pinout (2 items)">pinout</a>
+<a href="http://lednique.com/tag/pnp/" class="tag-cloud-link tag-link-37 tag-link-position-89" style="font-size: 75%;" aria-label="PNP (1 item)">PNP</a>
+<a href="http://lednique.com/tag/power/" class="tag-cloud-link tag-link-24 tag-link-position-90" style="font-size: 75%;" aria-label="power (1 item)">power</a>
+<a href="http://lednique.com/tag/power-supplies/" class="tag-cloud-link tag-link-111 tag-link-position-91" style="font-size: 108.783783784%;" aria-label="power-supplies (3 items)">power-supplies</a>
+<a href="http://lednique.com/tag/protection-diodes/" class="tag-cloud-link tag-link-38 tag-link-position-92" style="font-size: 75%;" aria-label="protection diodes (1 item)">protection diodes</a>
+<a href="http://lednique.com/tag/psu/" class="tag-cloud-link tag-link-114 tag-link-position-93" style="font-size: 75%;" aria-label="PSU (1 item)">PSU</a>
+<a href="http://lednique.com/tag/pwm/" class="tag-cloud-link tag-link-9 tag-link-position-94" style="font-size: 95.2702702703%;" aria-label="PWM (2 items)">PWM</a>
+<a href="http://lednique.com/tag/raspberry-pi/" class="tag-cloud-link tag-link-64 tag-link-position-95" style="font-size: 75%;" aria-label="raspberry pi (1 item)">raspberry pi</a>
+<a href="http://lednique.com/tag/resistance/" class="tag-cloud-link tag-link-27 tag-link-position-96" style="font-size: 120.045045045%;" aria-label="resistance (4 items)">resistance</a>
+<a href="http://lednique.com/tag/resistor/" class="tag-cloud-link tag-link-65 tag-link-position-97" style="font-size: 95.2702702703%;" aria-label="resistor (2 items)">resistor</a>
+<a href="http://lednique.com/tag/response-time/" class="tag-cloud-link tag-link-91 tag-link-position-98" style="font-size: 75%;" aria-label="response time (1 item)">response time</a>
+<a href="http://lednique.com/tag/rgb/" class="tag-cloud-link tag-link-7 tag-link-position-99" style="font-size: 75%;" aria-label="RGB (1 item)">RGB</a>
+<a href="http://lednique.com/tag/seven-segment/" class="tag-cloud-link tag-link-40 tag-link-position-100" style="font-size: 95.2702702703%;" aria-label="seven-segment (2 items)">seven-segment</a>
+<a href="http://lednique.com/tag/sneak-path/" class="tag-cloud-link tag-link-124 tag-link-position-101" style="font-size: 75%;" aria-label="sneak-path (1 item)">sneak-path</a>
+<a href="http://lednique.com/tag/spectrum/" class="tag-cloud-link tag-link-12 tag-link-position-102" style="font-size: 108.783783784%;" aria-label="spectrum (3 items)">spectrum</a>
+<a href="http://lednique.com/tag/speed/" class="tag-cloud-link tag-link-97 tag-link-position-103" style="font-size: 75%;" aria-label="speed (1 item)">speed</a>
+<a href="http://lednique.com/tag/stepper/" class="tag-cloud-link tag-link-96 tag-link-position-104" style="font-size: 75%;" aria-label="stepper (1 item)">stepper</a>
+<a href="http://lednique.com/tag/strip/" class="tag-cloud-link tag-link-3 tag-link-position-105" style="font-size: 75%;" aria-label="strip (1 item)">strip</a>
+<a href="http://lednique.com/tag/strip-light/" class="tag-cloud-link tag-link-86 tag-link-position-106" style="font-size: 75%;" aria-label="strip light (1 item)">strip light</a>
+<a href="http://lednique.com/tag/t-size/" class="tag-cloud-link tag-link-48 tag-link-position-107" style="font-size: 75%;" aria-label="T-size (1 item)">T-size</a>
+<a href="http://lednique.com/tag/t-sizes/" class="tag-cloud-link tag-link-62 tag-link-position-108" style="font-size: 75%;" aria-label="t-sizes (1 item)">t-sizes</a>
+<a href="http://lednique.com/tag/test-equipment/" class="tag-cloud-link tag-link-29 tag-link-position-109" style="font-size: 120.045045045%;" aria-label="test-equipment (4 items)">test-equipment</a>
+<a href="http://lednique.com/tag/theory/" class="tag-cloud-link tag-link-67 tag-link-position-110" style="font-size: 95.2702702703%;" aria-label="theory (2 items)">theory</a>
+<a href="http://lednique.com/tag/tool/" class="tag-cloud-link tag-link-106 tag-link-position-111" style="font-size: 75%;" aria-label="tool (1 item)">tool</a>
+<a href="http://lednique.com/tag/triac/" class="tag-cloud-link tag-link-93 tag-link-position-112" style="font-size: 95.2702702703%;" aria-label="triac (2 items)">triac</a>
+<a href="http://lednique.com/tag/tube/" class="tag-cloud-link tag-link-47 tag-link-position-113" style="font-size: 75%;" aria-label="tube (1 item)">tube</a>
+<a href="http://lednique.com/tag/tv-remote/" class="tag-cloud-link tag-link-73 tag-link-position-114" style="font-size: 75%;" aria-label="tv-remote (1 item)">tv-remote</a>
+<a href="http://lednique.com/tag/valve/" class="tag-cloud-link tag-link-98 tag-link-position-115" style="font-size: 75%;" aria-label="valve; (1 item)">valve;</a>
+<a href="http://lednique.com/tag/vf/" class="tag-cloud-link tag-link-127 tag-link-position-116" style="font-size: 75%;" aria-label="Vf (1 item)">Vf</a>
+<a href="http://lednique.com/tag/voltage/" class="tag-cloud-link tag-link-25 tag-link-position-117" style="font-size: 108.783783784%;" aria-label="voltage (3 items)">voltage</a>
+<a href="http://lednique.com/tag/voltage-booster/" class="tag-cloud-link tag-link-112 tag-link-position-118" style="font-size: 75%;" aria-label="voltage-booster (1 item)">voltage-booster</a>
+<a href="http://lednique.com/tag/watts/" class="tag-cloud-link tag-link-69 tag-link-position-119" style="font-size: 75%;" aria-label="watts (1 item)">watts</a>
+<a href="http://lednique.com/tag/wavelength/" class="tag-cloud-link tag-link-126 tag-link-position-120" style="font-size: 75%;" aria-label="wavelength (1 item)">wavelength</a>
+<a href="http://lednique.com/tag/zero-cross/" class="tag-cloud-link tag-link-94 tag-link-position-121" style="font-size: 75%;" aria-label="zero-cross (1 item)">zero-cross</a>        </div>
+        
+<p>LEDs have advanced rapidly in the last decade and have now replacing incandescent and fluorescent lamps in domestic, industrial and automotive applications.</p>
+<p>The site is intended to be a resource for anyone wanting to learn about or experiment with LEDs for hobby, professional, educational and domestic applications.</p>
+<!-- Simple Share Buttons Adder (7.5.19) simplesharebuttons.com --><div class="ssba-classic-2 ssba ssbp-wrap left ssbp--theme-1"><div style="text-align:left"><span class="ssba-share-text">Please link to us if you find the information helpful ...&lt;br&gt;</span><a data-site="" class="ssba_twitter_share" href="http://twitter.com/share?url=http://lednique.com/&amp;text=LED%20circuits%2C%20theory%2C%20applications%20and%20tips%20Sharing%20LEDnique%20by%20Twitter%20..."  target=&quot;_blank&quot; ><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/twitter.png" style="width: 35px;" title="Twitter" class="ssba ssba-img" alt="Tweet about this on Twitter" /><div title="Twitter" class="ssbp-text">Twitter</div></a><a data-site="" class="ssba_facebook_share" href="http://www.facebook.com/sharer.php?u=http://lednique.com/"  target="_blank" ><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/facebook.png" style="width: 35px;" title="Facebook" class="ssba ssba-img" alt="Share on Facebook" /><div title="Facebook" class="ssbp-text">Facebook</div></a><span class="fb-save" style="display:inline-block" data-uri="http://lednique.com/"></span><a data-site='pinterest' class='ssba_pinterest_share' href='javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;//assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());'><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/pinterest.png" style="width: 35px;" title="Pinterest" class="ssba ssba-img" alt="Pin on Pinterest" /><div title="Pinterest" class="ssbp-text">Pinterest</div></a><a data-site="digg" class="ssba_diggit_share ssba_share_link" href="http://www.digg.com/submit?url=http://lednique.com/"  target=&quot;_blank&quot; ><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/diggit.png" style="width: 35px;" title="Digg" class="ssba ssba-img" alt="Digg this" /><div title="Digg" class="ssbp-text">Digg</div></a><a data-site="linkedin" class="ssba_linkedin_share ssba_share_link" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://lednique.com/"  target=&quot;_blank&quot; ><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/linkedin.png" style="width: 35px;" title="LinkedIn" class="ssba ssba-img" alt="Share on LinkedIn" /><div title="Linkedin" class="ssbp-text">Linkedin</div></a><a data-site="reddit" class="ssba_reddit_share" href="http://reddit.com/submit?url=http://lednique.com/&amp;title=LED circuits, theory, applications and tips"  target=&quot;_blank&quot; ><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/reddit.png" style="width: 35px;" title="Reddit" class="ssba ssba-img" alt="Share on Reddit" /><div title="Reddit" class="ssbp-text">Reddit</div></a><a data-site="stumbleupon" class="ssba_stumbleupon_share ssba_share_link" href="http://www.stumbleupon.com/submit?url=http://lednique.com/&#038;title=LED%20circuits,%20theory,%20applications%20and%20tips"  target=&quot;_blank&quot; ><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/stumbleupon.png" style="width: 35px;" title="StumbleUpon" class="ssba ssba-img" alt="Share on StumbleUpon" /><div title="StumbleUpon" class="ssbp-text">StumbleUpon</div></a><a data-site="tumblr" class="ssba_tumblr_share" href="http://www.tumblr.com/share/link?url=http://lednique.com/"  target=&quot;_blank&quot; ><img src="http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/buttons/somacro/tumblr.png" style="width: 35px;" title="tumblr" class="ssba ssba-img" alt="Share on Tumblr" /><div title="Tumblr" class="ssbp-text">Tumblr</div></a></div></div>	</div><!-- .entry-content -->
+
+	
+</article><!-- #post-## -->
+
+	</main><!-- .site-main -->
+
+	<aside id="content-bottom-widgets" class="content-bottom-widgets" role="complementary">
+			<div class="widget-area">
+			<section id="text-4" class="widget widget_text">			<div class="textwidget"><p><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><br />
+<!-- Single page - 1 (lednique.com) --><br />
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7000720885522141"
+     data-ad-slot="3168240636"
+     data-ad-format="auto"></ins><br />
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</section>		</div><!-- .widget-area -->
+	
+			<div class="widget-area">
+			
+        <aside class="widget" id="visitor-counter">
+            <h2 class="visitor-counter-heading" style="font-family:Merriweather; color:#000;" ><a href="http://visitorcounterplugin.com">Visitor Counter</a></h2>
+        <div class="visitor-counter-content" style="color: #000; font-family: Merriweather;" >
+            <p>Today: 227</p>
+            <p>Yesterday: 728</p>
+            <p>This Week: 14671</p>
+            <p>This Month: 49220</p>
+            <p>Total: 665269</p>
+            <p>Currently Online: 120</p>
+        </div>
+        </aside>
+        
+        		</div><!-- .widget-area -->
+	</aside><!-- .content-bottom-widgets -->
+
+</div><!-- .content-area -->
+
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary">
+		<section id="search-2" class="widget widget_search">
+<form role="search" method="get" class="search-form" action="http://lednique.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</section><section id="text-2" class="widget widget_text">			<div class="textwidget"><p><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><br />
+<!-- LEDnique sidebar --><br />
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7000720885522141"
+     data-ad-slot="1906477882"></ins><br />
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</section><section id="pages-2" class="widget widget_pages"><h2 class="widget-title">Pages</h2>		<ul>
+			<li class="page_item page-item-177"><a href="http://lednique.com/battery-plus-led-without-resistor/">Battery and LED without resistor</a></li>
+<li class="page_item page-item-507 page_item_has_children"><a href="http://lednique.com/bulbs/">Bulbs</a>
+<ul class='children'>
+	<li class="page_item page-item-537"><a href="http://lednique.com/bulbs/dimmers-for-leds/">Dimmable mains LED bulbs</a></li>
+	<li class="page_item page-item-510"><a href="http://lednique.com/bulbs/led-filament-lamps/">LED filament lamps</a></li>
+	<li class="page_item page-item-502"><a href="http://lednique.com/bulbs/leds-for-cars/">LEDs for cars and trucks</a></li>
+</ul>
+</li>
+<li class="page_item page-item-6"><a href="http://lednique.com/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-670 page_item_has_children"><a href="http://lednique.com/current-voltage-relationships/">Current and voltage relationships</a>
+<ul class='children'>
+	<li class="page_item page-item-517"><a href="http://lednique.com/current-voltage-relationships/resistance-of-an-led/">&#8216;Resistance&#8217; of an LED</a></li>
+	<li class="page_item page-item-90"><a href="http://lednique.com/current-voltage-relationships/iv-curves/">IV curves</a></li>
+	<li class="page_item page-item-544"><a href="http://lednique.com/current-voltage-relationships/loadline-resistance-graphic-tool/">Loadline resistance graphic tool</a></li>
+	<li class="page_item page-item-555"><a href="http://lednique.com/current-voltage-relationships/variations-vf-binning/">Variations in Vf and &#8220;binning&#8221;</a></li>
+</ul>
+</li>
+<li class="page_item page-item-640 page_item_has_children"><a href="http://lednique.com/display-technology/">Display technology</a>
+<ul class='children'>
+	<li class="page_item page-item-634"><a href="http://lednique.com/display-technology/1602-lcd-backlight-led/">1602 LCD backlight LED</a></li>
+	<li class="page_item page-item-263"><a href="http://lednique.com/display-technology/7-segment-display-basics/">7-segment display basics</a></li>
+	<li class="page_item page-item-402"><a href="http://lednique.com/display-technology/alphanumeric-led-displays/">Alphanumeric LED displays</a></li>
+	<li class="page_item page-item-140"><a href="http://lednique.com/display-technology/multiplexed-display/">Multiplexed display &#8211; the basics</a></li>
+</ul>
+</li>
+<li class="page_item page-item-212"><a href="http://lednique.com/driving-leds-on-higher-voltage/">Driving LEDs on higher voltage</a></li>
+<li class="page_item page-item-152 page_item_has_children"><a href="http://lednique.com/electrical-theory-basics/">Electrical theory &#8211; basics</a>
+<ul class='children'>
+	<li class="page_item page-item-66"><a href="http://lednique.com/electrical-theory-basics/ohms-law-and-resistor-calculation/">Ohm&#8217;s law &#8211; LED resistor calculation</a></li>
+	<li class="page_item page-item-162"><a href="http://lednique.com/electrical-theory-basics/power-calculations/">Power calculations</a></li>
+</ul>
+</li>
+<li class="page_item page-item-246"><a href="http://lednique.com/gpio-high-side-driver-fail/">GPIO high-side driver fail</a></li>
+<li class="page_item page-item-145 page_item_has_children"><a href="http://lednique.com/gpio-tricks/">GPIO tricks</a>
+<ul class='children'>
+	<li class="page_item page-item-109"><a href="http://lednique.com/gpio-tricks/1-gpio-dual-led-common-cathode/">1 GPIO, bi-colour LED, common cathode</a></li>
+	<li class="page_item page-item-112"><a href="http://lednique.com/gpio-tricks/1-gpio-bi-colour-2-pin-led/">1 GPIO, bi-colour, 2-pin LED</a></li>
+	<li class="page_item page-item-118"><a href="http://lednique.com/gpio-tricks/2-gpio-1-bi-colour-2-pin-led/">2 GPIO, 1 bi-colour 2-pin LED</a></li>
+	<li class="page_item page-item-210"><a href="http://lednique.com/gpio-tricks/interfacing-with-logic/">High-side versus low-side switching</a></li>
+	<li class="page_item page-item-101"><a href="http://lednique.com/gpio-tricks/1-gpio-multiple-leds/">One switch or GPIO / multiple LEDs</a></li>
+</ul>
+</li>
+<li class="page_item page-item-659"><a href="http://lednique.com/ground-earth-chassis/">Ground, earth and chassis explained</a></li>
+<li class="page_item page-item-4 current_page_item"><a href="http://lednique.com/" aria-current="page">LED circuits, theory, applications and tips</a></li>
+<li class="page_item page-item-207"><a href="http://lednique.com/led-lead-lengths/">LED lead lengths</a></li>
+<li class="page_item page-item-192"><a href="http://lednique.com/leds-with-more-than-two-pins/">LED pinouts &#8211; 2, 3, 4-pin and more</a></li>
+<li class="page_item page-item-81"><a href="http://lednique.com/datasheet-current/">LED rated current</a></li>
+<li class="page_item page-item-493"><a href="http://lednique.com/led-speed/">LED speed</a></li>
+<li class="page_item page-item-722"><a href="http://lednique.com/leds-and-colour/">LEDs and colour</a></li>
+<li class="page_item page-item-285"><a href="http://lednique.com/miscellaneous-lamp-info/">Miscellaneous lamp info</a></li>
+<li class="page_item page-item-300 page_item_has_children"><a href="http://lednique.com/opto-isolators-2/">Opto-isolators</a>
+<ul class='children'>
+	<li class="page_item page-item-302"><a href="http://lednique.com/opto-isolators-2/diy-opto-isolator/">DIY opto-isolator</a></li>
+	<li class="page_item page-item-442"><a href="http://lednique.com/opto-isolators-2/light-dependent-resistor-ldr/">Light dependent resistor (LDR)</a></li>
+	<li class="page_item page-item-289"><a href="http://lednique.com/opto-isolators-2/opto-isolators/">Opto-isolators &#8211; intro</a></li>
+	<li class="page_item page-item-458"><a href="http://lednique.com/opto-isolators-2/opto-triacs-zero-cross-work/">Opto-triacs, solid-state relays (SSR), zero-cross and how they work</a></li>
+</ul>
+</li>
+<li class="page_item page-item-128"><a href="http://lednique.com/parallel-leds/">Parallel LEDs &#8211; the problem</a></li>
+<li class="page_item page-item-567 page_item_has_children"><a href="http://lednique.com/power-supplies/">Power supplies</a>
+<ul class='children'>
+	<li class="page_item page-item-715"><a href="http://lednique.com/power-supplies/al5809-constant-current-driver/">AL5809 constant current driver</a></li>
+	<li class="page_item page-item-602"><a href="http://lednique.com/power-supplies/dimmable-mains-psu-control/">Dimmable mains PSU control</a></li>
+	<li class="page_item page-item-579"><a href="http://lednique.com/power-supplies/gpio-voltage-booster/">GPIO voltage booster</a></li>
+	<li class="page_item page-item-573"><a href="http://lednique.com/power-supplies/lm317-constant-current-power-supply/">LM317 constant-current power supply</a></li>
+	<li class="page_item page-item-564"><a href="http://lednique.com/power-supplies/simple-constant-current-driver/">Simple constant-current driver</a></li>
+</ul>
+</li>
+<li class="page_item page-item-54"><a href="http://lednique.com/rgb-led/">RGB LED</a></li>
+<li class="page_item page-item-174 page_item_has_children"><a href="http://lednique.com/technology-basics/">Technology &#8211; basics</a>
+<ul class='children'>
+	<li class="page_item page-item-524"><a href="http://lednique.com/technology-basics/failure-modes-leds/">Failure modes for LEDs</a></li>
+	<li class="page_item page-item-29"><a href="http://lednique.com/technology-basics/flexible-led-strip-light/">Flexible LED strip light basics</a></li>
+	<li class="page_item page-item-157"><a href="http://lednique.com/technology-basics/bulb-basics/">Light bulb</a></li>
+</ul>
+</li>
+<li class="page_item page-item-185 page_item_has_children"><a href="http://lednique.com/test-equipment/">Test equipment</a>
+<ul class='children'>
+	<li class="page_item page-item-187"><a href="http://lednique.com/test-equipment/multimeter/">Multimeter</a></li>
+	<li class="page_item page-item-479"><a href="http://lednique.com/test-equipment/simple-stepper-motor-test-using-led/">Simple stepper-motor test using LED</a></li>
+	<li class="page_item page-item-370"><a href="http://lednique.com/test-equipment/test-infrared-led/">Test infrared LEDs using a camera phone</a></li>
+	<li class="page_item page-item-530"><a href="http://lednique.com/test-equipment/testing-unknown-leds/">Testing unknown LEDs</a></li>
+</ul>
+</li>
+<li class="page_item page-item-14"><a href="http://lednique.com/what-is-an-led/">What is an LED</a></li>
+		</ul>
+			</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+			<li class="cat-item-none">No categories</li>		</ul>
+			</section><section id="meta-2" class="widget widget_meta"><h2 class="widget-title">Meta</h2>			<ul>
+						<li><a rel="nofollow" href="http://lednique.com/wp/wp-login.php">Log in</a></li>
+			<li><a href="http://lednique.com/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://lednique.com/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+			</section>	</aside><!-- .sidebar .widget-area -->
+
+		</div><!-- .site-content -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			
+			
+			<div class="site-info">
+								<span class="site-title"><a href="http://lednique.com/" rel="home">LEDnique</a></span>
+								<a href="https://wordpress.org/" class="imprint">
+					Proudly powered by WordPress				</a>
+			</div><!-- .site-info -->
+		</footer><!-- .site-footer -->
+	</div><!-- .site-inner -->
+</div><!-- .site -->
+
+<link rel='stylesheet' id='simple-share-buttons-adder-ssba-css'  href='http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/css/ssba.css?ver=5.1.8' type='text/css' media='all' />
+<style id='simple-share-buttons-adder-ssba-inline-css' type='text/css'>
+	.ssba {
+									
+									
+									
+									
+								}
+								.ssba img
+								{
+									width: 35px !important;
+									padding: 6px;
+									border:  0;
+									box-shadow: none !important;
+									display: inline !important;
+									vertical-align: middle;
+									box-sizing: unset;
+								}
+								
+								.ssba-classic-2 .ssbp-text {
+									display: none!important;
+								}
+								
+								.ssba .fb-save
+								{
+								padding: 6px;
+								line-height: 30px; }
+								.ssba, .ssba a
+								{
+									text-decoration:none;
+									background: none;
+									font-family: Indie Flower;
+									font-size: 20px;
+									
+									font-weight: bold;
+								}
+								
+
+			   #ssba-bar-2 .ssbp-bar-list {
+					max-width: 48px!important;;
+			   }
+			   #ssba-bar-2 .ssbp-bar-list li a {height: 48px!important; width: 48px!important; 
+				}
+				#ssba-bar-2 .ssbp-bar-list li a:hover {
+				}
+					
+				#ssba-bar-2 .ssbp-bar-list li a::before {line-height: 48px!important;; font-size: 18px;}
+				#ssba-bar-2 .ssbp-bar-list li a:hover::before {}
+				#ssba-bar-2 .ssbp-bar-list li {
+				margin: 0px 0!important;
+				}@media only screen and ( max-width: 750px ) {
+				#ssba-bar-2 {
+				display: block;
+				}
+			}
+@font-face {
+				font-family: 'ssbp';
+				src:url('http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.eot?xj3ol1');
+				src:url('http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.eot?#iefixxj3ol1') format('embedded-opentype'),
+					url('http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.woff?xj3ol1') format('woff'),
+					url('http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.ttf?xj3ol1') format('truetype'),
+					url('http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.svg?xj3ol1#ssbp') format('svg');
+				font-weight: normal;
+				font-style: normal;
+
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+</style>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/lednique.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.5'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/simple-share-buttons-adder/js/ssba.js?ver=5.1.8'></script>
+<script type='text/javascript'>
+Main.boot( [] );
+</script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/wp-category-tag-could/javascript/jquery.tagcanvas.min.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/wp-category-tag-could/javascript/wpctc.tagcanvas.min.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/wp-category-tag-could/javascript/jquery.style.min.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/plugins/wp-category-tag-could/javascript/wp-category-tag-cloud.min.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/themes/twentysixteen/js/skip-link-focus-fix.js?ver=20160816'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-content/themes/twentysixteen/js/functions.js?ver=20160816'></script>
+<script type='text/javascript' src='http://lednique.com/wp/wp-includes/js/wp-embed.min.js?ver=5.1.8'></script>
+</body>
+</html>
